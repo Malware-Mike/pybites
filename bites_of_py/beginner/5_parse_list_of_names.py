@@ -6,6 +6,10 @@ NAMES = ['arnold schwarzenegger', 'alec baldwin', 'bob belderbos',
 
 def dedup_and_title_case_names(names):
     """Should return a list of names, each name appears only once"""
+    """ 
+        names = list(set(NAMES))
+        return [i.title() for i in names]
+    """
     dedup = set(names)
     new_list =[]
 
@@ -30,10 +34,7 @@ def shortest_first_name(names):
     """
     names = dedup_and_title_case_names(names)
     # ...
-    first_names = []
-    for name in names:
-        split_name = name.split(' ')
-        first_names.append(split_name[0])
+    first_names = [name.split(' ')[0] for name in names]
 
     return min(first_names, key=len)
 
